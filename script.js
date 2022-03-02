@@ -7,6 +7,22 @@ function inputLength(){
     return input.value.length;
 }
 
+function checkSize(){
+    var listSize = document.getElementsByTagName("li").length;   
+    // return listSize;
+    if (listSize > 0){
+        document.getElementById("emptyMsg").style.display="none";
+        console.log(listSize)
+    }
+    else {
+        document.getElementById("emptyMsg").innerHTML = "Nothing to do";
+        console.log("lista vazia");
+       
+    }
+}
+
+checkSize();
+
 function createItemList(){
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(input.value));
@@ -17,6 +33,7 @@ function createItemList(){
 function addItemClick(){
     if (inputLength() >0){
         createItemList();
+        checkSize();
     }
 }
 
@@ -28,3 +45,4 @@ function addItemEnter(event){
 
 button.addEventListener("click", addItemClick);
 input.addEventListener("keypress", addItemEnter);
+
