@@ -26,7 +26,6 @@
     left: 0;
     z-index: -1;
     background-size:cover;
-    /* border-radius: 0 0 40% 40%/ 0% 0% 60% 60% ; */
     width: 100%;
     height: 10vw;
     position: sticky;
@@ -45,12 +44,12 @@
 }
 
 .header h1{
-color: #795E5B;
-padding-top: 2vw;
-text-align: center;
-font-weight: bold;
-font-size: 5vw;
-text-shadow: 1px 1px 2px #F2B4BC;
+    color: #795E5B;
+    padding-top: 2vw;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5vw;
+    text-shadow: 1px 1px 2px #F2B4BC;
 }
 
 .listInput {
@@ -82,6 +81,62 @@ text-shadow: 1px 1px 2px #F2B4BC;
     top: 50%;
 }
 
-ul:empty::after{
-  content: attr(data-empty-message);
+.todoList {
+    position: relative;
+    vertical-align: center;
+    margin-left: 5px;
+
 }
+
+.todoList #emptyMsg {
+    line-height: 2.5rem;
+    background-color: #B2767D;
+    border-radius: 100px;
+    width: 100%;
+    color: white;
+    font-family: 'Hubballi', cursive;
+    text-align: center;
+    font-size: 150%;
+   }
+
+.todoList li{
+    line-height: 2.5rem;
+    background-color: #B2767D;
+    border-radius: 100px;
+    width: 100%;
+    color: white;
+    font-family: 'Hubballi', cursive;
+    text-align: left;
+    font-size: 150%;
+    padding-left: 5%;
+    margin: 4px;
+    position: relative;
+    list-style: none;
+}
+
+.todoList #delBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    opacity: 0.8;
+    font-size: 1em;
+    right: 5px;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+
+/* Add a "checked" mark when clicked on */
+/* ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  } */
