@@ -1,4 +1,5 @@
-var button = document.getElementById("inputBtn");
+var addBtn = document.getElementById("inputBtn");
+var delItem = document.getElementById("delBtn");
 var input = document.getElementById("userInput");
 var ul = document.querySelector("ul")
 
@@ -32,22 +33,16 @@ function createItemList(){
     var btnType = document.createTextNode("delete")
     span.classList.add('material-icons');
     span.setAttribute('id', 'delBtn');
-    span.setAttribute('type','submit')
+    span.setAttribute('type','submit');
+    span.setAttribute('onclick', 'this.parentNode.style.display="none";')
     span.appendChild(btnType);
     li.appendChild(span); 
-    console.log(li)
     //End Delete Button
 
     ul.append(li);
     input.value ="";
 }
 
-/* var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('checked');
-  }
-}, false); */
 
 function addItemClick(){
     if (inputLength() >0){
@@ -62,6 +57,12 @@ function addItemEnter(event){
     }
 }
 
-button.addEventListener("click", addItemClick);
-input.addEventListener("keypress", addItemEnter);
+//Check status event on Click
+ul.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
+addBtn.addEventListener("click", addItemClick);
+input.addEventListener("keypress", addItemEnter);

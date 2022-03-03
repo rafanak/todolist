@@ -80,6 +80,9 @@
     transform: translateY(-50%);
     top: 50%;
 }
+.listInput #inputBtn:hover{
+color:black;
+}
 
 .todoList {
     position: relative;
@@ -109,9 +112,22 @@
     text-align: left;
     font-size: 150%;
     padding-left: 5%;
-    margin: 4px;
+    margin-bottom: 4px;
     position: relative;
     list-style: none;
+}
+
+.todoList li:hover{
+     cursor:pointer;   
+     opacity: 0.7;
+}
+
+.todoList .checked{
+    color: #676767;
+    background-color: #B4B4B4;
+    opacity: 0.7;;
+    transition: 1s;
+    text-decoration: line-through;
 }
 
 .todoList #delBtn{
@@ -126,17 +142,7 @@
     top: 50%;
 }
 
-
-/* Add a "checked" mark when clicked on */
-/* ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    border-width: 0 2px 2px 0;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
-  } */
+.todoList #delBtn:hover{
+    /* border: 1px solid #753139; */
+    color: black;
+}
