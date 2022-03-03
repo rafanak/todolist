@@ -26,15 +26,34 @@ checkSize();
 function createItemList(){
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(input.value));
-    ul.appendChild(li);
+    
+    //Delete Button
+    var span = document.createElement('span');
+    var btnType = document.createTextNode("delete")
+    span.classList.add('material-icons');
+    span.setAttribute('id', 'delBtn');
+    span.setAttribute('type','submit')
+    span.appendChild(btnType);
+    li.appendChild(span); 
+    console.log(li)
+    //End Delete Button
+
+    ul.append(li);
     input.value ="";
 }
+
+/* var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false); */
 
 function addItemClick(){
     if (inputLength() >0){
         createItemList();
         checkSize();
-    }
+     }
 }
 
 function addItemEnter(event){
