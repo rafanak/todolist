@@ -67,21 +67,3 @@ function addItemEnter(event){
 addBtn.addEventListener("click", addItemClick);
 input.addEventListener("keypress", addItemEnter);
 
-/* window.onload = (
-	function cookieRetrieval() {
-		// debugger	
-
-
-			let cookieContent = localStorage.getElementsByTagName("li").value;
-
-			if(cookieContent != null)
-			{
-				cookieContent = cookieContent.split(":").pop();
-			}
-			else{}
-
-			if (cookieContent == null || cookieContent == 0) {
-				divContent.innerHTML = "";
-			} 
-		}	
-); */
