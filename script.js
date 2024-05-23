@@ -17,6 +17,7 @@ function checkSize() {
     }
     else {
         document.getElementById("emptyMsg").innerHTML = "Nothing to do";
+        document.getElementById("emptyMsg").style.display = "block";
         console.log("lista vazia");
 
     }
@@ -24,7 +25,7 @@ function checkSize() {
 
 function deleteItem(itemValue) {
     const currentElement = document.getElementById(itemValue)
-    currentElement.style.display = "none"
+    currentElement.remove()
 
     const savedList = JSON.parse(localStorage.getItem(localStorageListKey)) ?? []
     const filteredList = savedList.filter(item => item !== itemValue)
