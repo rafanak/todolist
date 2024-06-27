@@ -39,12 +39,12 @@ function deleteItem(itemValue) {
 
 /**
  * 
- * @param {string} itemValue 
+ * @param {object} itemValue 
  */
 function addItemToDOM(itemValue) {
     var li = document.createElement("li");
-    li.appendChild(document.createTextNode(itemValue));
-    li.setAttribute('id', itemValue)
+    li.appendChild(document.createTextNode(itemValue.item));
+    li.setAttribute('id', itemValue.item)
 
     //Delete Button
     var span = document.createElement('span');
@@ -55,6 +55,9 @@ function addItemToDOM(itemValue) {
     span.addEventListener('click', () => deleteItem(itemValue))
     span.appendChild(btnType);
     li.appendChild(span);
+    if (itemValue.status === 'done') {
+        li.classList.add('checked');
+    }
     //End Delete Button
 
     ul.append(li);
@@ -87,8 +90,12 @@ function saveToLocalStorage(newItem) {
 }
 
 function createItemList() {
-    addItemToDOM(input.value)
-    saveToLocalStorage(input.value)
+    const newItemWithStatus = {
+        item: input.value,
+        status: 'toDo'
+    }
+    addItemToDOM(newItemWithStatus)
+    saveToLocalStorage(newItemWithStatus)
 
     input.value = "";
 }
@@ -107,9 +114,31 @@ function addItemEnter(event) {
     }
 }
 
+function updateLocalStorageStatus(itemText) {
+    const currentList = JSON.parse(localStorage.getItem(localStorageListKey)) ?? []
+    const itemIndex = currentList.findIndex((item) => item?.item === itemText)
+    if (itemIndex === -1) {
+        return
+    }
+    const selectedItem = currentList[itemIndex]
+
+    const newStatus = selectedItem.status === 'toDo' ? 'done' : 'toDo'
+    const newItem = {
+        ...selectedItem,
+        status: newStatus
+    }
+
+    currentList[itemIndex] = newItem
+    const stringifiedList = JSON.stringify(currentList)
+    localStorage.setItem(localStorageListKey, stringifiedList)
+}
+
 //Check status event on Click
 ul.addEventListener('click', function (ev) {
     if (ev.target.tagName === 'LI') {
+        const element = ev.target.innerHTML
+        const targetElement = element.split('<span class="material-icons"')[0]
+        updateLocalStorageStatus(targetElement)
         ev.target.classList.toggle('checked');
     }
 }, false);
