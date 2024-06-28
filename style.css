@@ -2,10 +2,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    
   }
 
 .body{
     background: #F4D9DC;
+    scroll-padding-top: 4rem;
+    
 }
 
 .row{
@@ -17,13 +20,14 @@
     gap: 10px;
     background-color: #F4D9DC;
     padding-top: 2%;
+    
  
 }
 .banner{
     overflow: hidden;
     max-height: 200px;
     position: relative;
-
+    background: #F4D9DC;
 }
 
 .header{
@@ -92,6 +96,7 @@ color:black;
     position: relative;
     vertical-align: center;
     margin-left: 5px;
+    background: #F4D9DC;
 
 }
 
