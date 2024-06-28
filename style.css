@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: #F4D9DC;
     
   }
 
@@ -19,26 +20,24 @@
     grid-template-rows: auto auto ;
     gap: 10px;
     background-color: #F4D9DC;
-    padding-top: 2%;
-    
- 
+    padding-top: 4rem;
 }
+
 .banner{
     overflow: hidden;
     max-height: 200px;
     position: relative;
-    background: #F4D9DC;
 }
 
 .header{
-    background-color: #F4D9DC;
     font-family: 'Amatic SC', cursive;
-    width: 100%;
+    width: 100vw;
     height: 10vw;
     position: sticky;
     top: 0;
     right: 0;
     left: 0;
+    z-index: 1;
 }
 
 .header h1{
@@ -46,12 +45,13 @@
     /* padding-top: 2vw; */
     text-align: center;
     font-weight: bold;
-    font-size: 5vw;
-    text-shadow: 1px 1px 2px #F2B4BC;
+    font-size: 8vw;
+    text-shadow: 1px 1px 2px white;
     position: absolute;
     top: 50%;
     left:50%;
     transform: translate(-50%, -50%);
+    background: none;
 }
 
 .listInput {
@@ -70,6 +70,7 @@
     line-height: 2.5;
     opacity: 0.6;
     border: 1px solid #B2767D;
+    background-color: white;
     border-radius: 100px;
     padding-left: 5%;
 }
@@ -80,6 +81,7 @@
     right:8px;
     font-size: 2em;
     transform: translateY(-50%);
+    background: none;
     top: 50%;
 }
 
@@ -97,7 +99,6 @@ color:black;
     vertical-align: center;
     margin-left: 5px;
     background: #F4D9DC;
-
 }
 
 .todoList #emptyMsg {
@@ -148,6 +149,7 @@ color:black;
     font-size: 1em;
     right: 5px;
     transform: translateY(-50%);
+    background: none;
     top: 50%;
 }
 
