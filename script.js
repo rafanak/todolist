@@ -24,15 +24,17 @@ function checkSize() {
 }
 
 function deleteItem(itemValue) {
-    const currentElement = document.getElementById(itemValue)
+    const currentElement = document.getElementById(itemValue.item)
+    console.log(currentElement)
     currentElement.remove()
 
     const savedList = JSON.parse(localStorage.getItem(localStorageListKey)) ?? []
-    const filteredList = savedList.filter(item => item !== itemValue)
+    const filteredList = savedList.filter(item => item.item !== itemValue.item)
 
+    console.log(savedList)
+    console.log(filteredList)
     const stringifiedList = JSON.stringify(filteredList)
     localStorage.setItem(localStorageListKey, stringifiedList)
-
 
     checkSize();
 }
@@ -111,6 +113,7 @@ function addItemClick() {
 function addItemEnter(event) {
     if (inputLength() > 0 && event.keyCode === 13) {
         createItemList();
+        checkSize();
     }
 }
 
